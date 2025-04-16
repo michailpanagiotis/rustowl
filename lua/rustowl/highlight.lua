@@ -15,7 +15,7 @@ function M.enable(line, col, bufnr)
   }
 
   for _, client in ipairs(clients) do
-    client:request('rustowl/cursor', params, function(_, result, _)
+    client.request('rustowl/cursor', params, function(_, result, _)
       if result ~= nil then
         for _, deco in ipairs(result['decorations']) do
           if not deco['overlapped'] then
